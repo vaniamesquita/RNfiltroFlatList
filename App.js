@@ -46,7 +46,7 @@ export default function App() {
     //new: ps: ao inves de criar uma copia de result, o ideal é criar uma copia de list, pois se estiver filtrado, a classificação vai conseguir ser pelo filtro, e não pela lista inteira.
     let newList = [...list];
 
-    newList.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
+    newList.sort((a,b) => (a.name > b.name) ? 1 : (b.name > a.name)? -1 : 0)
 
     // newList.sort((a, b) => {//recebo o item do meu loop e o proximo item(Atual e o proximo)
     //   if(a.name > b.name) {
@@ -60,7 +60,7 @@ export default function App() {
     //   }
     // });
 
-    setList(newList);
+    setList(newList)
   };
 
   return (
@@ -73,9 +73,8 @@ export default function App() {
           value={searchText}
           onChangeText={t => setSearchText(t)} //quando mudar o texto, ele ja salva no state setSearchText
         />
-
         <TouchableOpacity onPress={handleOrderClick} style={styles.orderButton}>
-          <Text style={{color: 'white', fontWeight: 'bold'}}> -AZ</Text>
+          <Text style={{color: 'white', fontWeight: "bold"}}> -AZ</Text>
         </TouchableOpacity>
       </View>
 
